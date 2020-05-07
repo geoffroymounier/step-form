@@ -1,0 +1,19 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  &__input {
+    height : 20px;
+    line-height: 18px;
+    font-size:14px;
+    &--error {
+      border:1px solid red;
+    }
+  }
+  &__label {
+    display: inline-block;
+    .required {
+      color: red;
+    }
+  }
+
+}

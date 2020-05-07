@@ -1,0 +1,41 @@
+[
+  {
+    "name" : "User",
+    "fields" : [
+      {
+        "label" : "name",
+        "id":"name1",
+        "type":"input",
+        "required":true,
+        "placehholder":""
+      },
+      {
+        "label" : "name",
+        "id":"name2",
+        "required":true,
+        "type":"input",
+        "extraProps" : {
+          "regex" : "^[A-z\\s]{2,}$"
+        }
+      }
+    ]
+  },
+  {
+    "name" : "Privacy",
+    "fields" : [
+      {
+        "label" : "name",
+        "id":"name3",
+        "type":"input",
+        "required":true,
+        "placehholder":""
+      },
+            {
+        "label" : "name",
+        "id":"name4",
+        "required":true,
+        "type":"input"
+      }
+    ]
+  }
+]
