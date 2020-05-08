@@ -1,15 +1,15 @@
-import {SET_VALUE} from '../constants'
+import { SET_VALUE } from '../constants';
 
-const initState = {}
+const initState = {};
 
-export default (state = initState, {type,payload}) => {
+export default (state = initState, { type, payload }) => {
   switch (type) {
     case SET_VALUE: {
       return {
-        ...state, ...payload
-      }
+        ...state, ...payload,
+      };
     }
     default:
-      return state
+      return state;
   }
-}
+};

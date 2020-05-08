@@ -11,17 +11,20 @@ const props = {
       {
         "id":"name",
         "required":true,
-        "field":"input"
+        "field":"input",
+        "label":"name"
       },
       {
         "id":"role",
         "required":false,
         "field":"input",
+        "label":"Role"
       },
       {
         "id":"memberOfJediOrder",
         "required":true,
         "field":"checkbox",
+        "label":"I am a jedi"
       }
     ]
   }

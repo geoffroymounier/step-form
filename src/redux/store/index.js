@@ -1,5 +1,6 @@
-import rootReducer from "../reducers";
-import { createStore,applyMiddleware } from "redux";
-const store = createStore(rootReducer,applyMiddleware());
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from '../reducers';
+
+const store = createStore(rootReducer, applyMiddleware());
 
 export default store;

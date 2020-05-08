@@ -1,5 +1,5 @@
 import React from 'react';
-import UserForm from './pages/userForm'
+import UserForm from './pages/userForm';
 import './App.css';
 
 function App() {
