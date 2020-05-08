@@ -4,18 +4,39 @@
     "fields" : [
       {
         "label" : "name",
-        "id":"name1",
-        "type":"input",
+        "id":"name",
+        "field":"input",
         "required":true,
-        "placehholder":""
+        "placeholder":""
       },
       {
-        "label" : "name",
-        "id":"name2",
+        "label" : "role",
+        "id":"role",
+        "field":"input",
+        "required":false,
+        "placeholder":""
+      },
+      {
+        "label" : "email",
+        "id":"email",
+        "field":"input",
         "required":true,
-        "type":"input",
+        "placeholder":"",
         "extraProps" : {
-          "regex" : "^[A-z\\s]{2,}$"
+          "type":"email",
+          "regex": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
+          "regexError": "this is not a valid email"
+        }
+      },
+      {
+        "label" : "password",
+        "id":"password",
+        "required":true,
+        "field":"input",
+        "extraProps" : {
+          "type":"password",
+          "regex" : "(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$",
+          "regexError" : "Password must have more than 9 characters, with at least one number, one uppercase and one lowercase character"
         }
       }
     ]
@@ -26,7 +47,7 @@
       {
         "label" : "name",
         "id":"name3",
-        "type":"input",
+        "field":"input",
         "required":true,
         "placehholder":""
       },
@@ -34,7 +55,7 @@
         "label" : "name",
         "id":"name4",
         "required":true,
-        "type":"input"
+        "field":"input"
       }
     ]
   }

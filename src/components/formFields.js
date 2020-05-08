@@ -1,43 +1,36 @@
 import React from 'react'
-import Input from "../ui/input"
+import Input from "./ui/input"
+import Checkbox from "./ui/checkbox"
 import { useDispatch, useSelector } from 'react-redux'
 import { setValue, setError } from '../redux/actions'
 const mapElement = {
-  input : Input
+  input : Input,
+  checkbox : Checkbox
 }
-const FormFields = ({step,formData}) => {
+const FormFields = ({formStep}) => {
   const dispatch = useDispatch()
-  const formValues = useSelector(state => state.form.data)
-  const errorArray = useSelector(state => state.form.errorArray)
-  const valueChanged = (id,value,index) => {
-    dispatch(setValue({[id] : value}))
-  }
-  const errorChanged = (index,message) => {
-    dispatch(setError({index, message}))
-  }
+  const formValues = useSelector(state => state.form)
+  const valueChanged = (id,value) => dispatch(setValue({[id] : value}))
 
-  const fields = formData[step].fields
+  const fields = formStep.fields
   return (
-    <>
-      {fields.map(({type,label,id,required,extraProps} , index) => {
-        const MapedComponent = mapElement[type]
-        const isError = errorArray.findIndex(e => e.index === index) > -1
+    <div className='form__fields'>
+      {fields.map(({field,label,id,required,extraProps} , index) => {
+        if (!mapElement[field]) return null
+        const MapedComponent = mapElement[field]
         return (
           <MapedComponent
             key={id}
             label={label}
             id={id}
-            value={formValues[id]}
-            isError={isError}
-            index={index}
+            defaultValue={formValues[id]}
             required={required}
             changeValue = {valueChanged}
-            changeError = {errorChanged}
-            {...extraProps}
+            extraProps={extraProps}
           />
         )
       })}
-    </>
+    </div>
   )
 }
 

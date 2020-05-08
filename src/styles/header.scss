@@ -1,9 +1,11 @@
-
 .form {
-  max-width: 400px;
   margin: auto;
+  @media screen and (min-width: 600px) {
+    max-width: 400px;
+  }
   &__navigation {
     display: flex;
+    border : 1px solid black;
     & > div {
       flex:1;
       border : 1px solid black;
@@ -17,20 +19,33 @@
     border : 1px solid black;
     padding : 10px;
   }
+  &__error {
+    &--item {
+      border-radius: 5px;
+      border: 1px solid rgba(0,0,0,0.3);;
+      background-color: rgba(0,0,0,0.2);
+      color :red;
+      font-weight: 500;
+      padding:5px;
+      margin:5px 0px;
+    }
+  }
   &__field {
-    display: flex;
-    flex-direction: column;
     margin: 5px 0;
-    &__input {
+    .field__input {
       height : 20px;
       line-height: 18px;
       font-size:14px;
+      border:1px solid black;
+      box-sizing: border-box;
+      width: 100%;
       &--error {
         border:1px solid red;
       }
     }
-    &__label {
+    .field__label {
       display: inline-block;
+      margin-bottom: 5px;
       .required {
         color: red;
       }
@@ -53,6 +68,9 @@
       color : white;
       &:last-of-type {
         background-color: green;
+      }
+      &:disabled {
+        background-color: gray;
       }
       &.hidden {
         visibility: hidden;
