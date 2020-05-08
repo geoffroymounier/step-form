@@ -59,7 +59,7 @@ describe('Input UI Component', () =>{
       extraProps : {
         placeholder:'enter you password',
         type:'password',
-        regex: '(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$',
+        regex: '(?=^.{9,}$)(?=.*[a-z])(?=.*[\\d])(?=.*[A-Z])(?!.*\\s).*$',
         regexError: 'this is a weak password'
       },
       changeValue : jest.fn()

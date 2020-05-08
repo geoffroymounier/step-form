@@ -7,22 +7,26 @@
         "id":"name",
         "field":"input",
         "required":true,
-        "placeholder":""
+        "extraProps" : {
+          "placeholder" : "Luke Skywalker"
+        }
       },
       {
         "label" : "role",
         "id":"role",
         "field":"input",
         "required":false,
-        "placeholder":""
+        "extraProps" : {
+          "placeholder" : "Jedi"
+        }
       },
       {
         "label" : "email",
         "id":"email",
         "field":"input",
         "required":true,
-        "placeholder":"",
         "extraProps" : {
+          "placeholder":"luke@jediorder.space",
           "type":"email",
           "regex": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
           "regexError": "this is not a valid email"
@@ -34,8 +38,9 @@
         "required":true,
         "field":"input",
         "extraProps" : {
+          "placeholder" : "strong pass only",
           "type":"password",
-          "regex" : "(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$",
+          "regex" : "(?=^.{9,}$)(?=.*[a-z])(?=.*[\\d])(?=.*[A-Z])(?!.*\\s).*$",
           "regexError" : "Password must have more than 9 characters, with at least one number, one uppercase and one lowercase character"
         }
       }

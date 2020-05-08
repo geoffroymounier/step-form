@@ -1,0 +1,29 @@
+.field {
+  margin: 5px 0;
+  &__input {
+    height : 30px;
+    padding: 0 5px;
+    line-height: 18px;
+    font-size:18px;
+    border:1px solid black;
+    border-radius: 2px;
+    box-sizing: border-box;
+    width: 100%;
+    &--error {
+      border:1px solid red;
+    }
+  }
+  &__checkbox {
+    margin-right: 10px;
+  }
+  &__label {
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: 5px;
+    .required {
+      color: red;
+      margin-left:2px;
+    }
+  }
+}

@@ -6,12 +6,14 @@
   &__navigation {
     display: flex;
     border : 1px solid black;
+    margin-bottom: 2px;
     & > div {
       flex:1;
       border : 1px solid black;
+      padding:10px;
       text-align: center;
       &.active {
-        background-color: gray;
+        background-color: lightblue;
       }
     }
   }
@@ -31,46 +33,55 @@
     }
   }
   &__field {
-    margin: 5px 0;
-    .field__input {
-      height : 20px;
-      line-height: 18px;
-      font-size:14px;
-      border:1px solid black;
-      box-sizing: border-box;
-      width: 100%;
-      &--error {
-        border:1px solid red;
-      }
+    margin: 15px 0;
+    &--checkbox > span {
+      display: flex;
+      flex-direction: row;
     }
-    .field__label {
-      display: inline-block;
-      margin-bottom: 5px;
-      .required {
-        color: red;
-      }
-    }
-
   }
   &__bottom-bar {
-    margin-top:10px;
+    margin-top:20px;
   }
   &__completion {
     color : green;
     text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    h2 {
+      font-size: 30px;
+    }
   }
   &__buttons {
     display: flex;
     justify-content: space-between;
     & > button {
-      border:1px solid black;
+      outline: none;
+      cursor:pointer;
+      padding : 10px;
+      font-size: 16px;
+      font-weight: 500;
+      border:1px solid rbga(0,0,0,0.5);
+      border-radius:2px;
       background-color: blue;
+      transition: background-color 0.3s;
       color : white;
-      &:last-of-type {
+      &:focus {
+        border: 1px solid blue;
+        color:blue;
+        background: white;
+      }
+      &[type=submit] {
         background-color: green;
+        &:focus {
+          border: 1px solid green;
+          color:green;
+          background: white;
+        }
       }
       &:disabled {
         background-color: gray;
+        cursor:initial;
       }
       &.hidden {
         visibility: hidden;

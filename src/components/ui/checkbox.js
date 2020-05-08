@@ -20,19 +20,21 @@ const Checkbox = ({
   };
   return (
     <div className="form__field form__field--checkbox">
-      <input
-        id={id}
-        name={id}
-        type="checkbox"
-        className={`field__checkbox ${error ? 'field__checkbox--error' : ''}`}
-        aria-label={label}
-        defaultChecked={!!defaultValue}
-        onChange={onChange}
-      />
-      <label htmlFor={id} className="field__label">
-        {label}
-        {required && <span className="required">*</span>}
-      </label>
+      <span>
+        <input
+          id={id}
+          name={id}
+          type="checkbox"
+          className={`field__checkbox ${error ? 'field__checkbox--error' : ''}`}
+          aria-label={label}
+          defaultChecked={!!defaultValue}
+          onChange={onChange}
+        />
+        <label htmlFor={id} className="field__label">
+          {label}
+          {required && <span className="required">*</span>}
+        </label>
+      </span>
       {!!error && <div className="form__error--item"><span>{error}</span></div>}
     </div>
   );
