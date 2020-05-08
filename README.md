@@ -4,6 +4,7 @@ This project allow an user to go through a simple registration form with several
 
 It uses a single json data as source of form rendering, with the form of
 ``` js
+// ./src/data/userForm.json
 [
   [ // a subArray is for a step of the form
     name : // the name of the step
@@ -31,8 +32,10 @@ Eventually the data is mapped to split form step with available fields structure
 
 Eventually the data is stored as a json element in redux, for sake of accessing it through the app.
 
+the user data object is console logged in the final step "Done"
+
 ## Style
-sass files were preferred over Styled-component due to the size of the file and because effect of props on component style is not overwhelming
+sass files were preferred over Styled-component due to the size of the file and because there is few transformation of style depending on props.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,8 +48,8 @@ Redux reducer is tested.
 
 In the project directory, you can run:
 
-### `yarn start`
+- `yarn start`
 
-### `yarn test`
+- `yarn test`
 
-### `yarn build`
+- `yarn build`
