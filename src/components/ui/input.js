@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Input = ({
@@ -6,15 +7,15 @@ const Input = ({
   label,
   required,
   changeValue,
-  defaultValue,
   extraProps = {},
 }) => {
   const [error, setError] = useState(null);
+  const defaultValue = useSelector((state) => state.form[id]);
   const {
     regex, regexError, type, placeholder,
   } = extraProps;
 
-  const onBlur = (e) => { // no need to alarm the user untill he has finished typing
+  const onBlur = useCallback((e) => { // no need to alarm the user untill he has finished typing
     const { value } = e.target;
     let newError = null;
     if (!value && required) {
@@ -23,9 +24,9 @@ const Input = ({
       newError = regexError;
     }
     setError(newError);
-  };
+  },[]);
 
-  const onChange = (e) => {
+  const onChange = useCallback((e) => {
     const { value } = e.target;
     if (
       (!value && required)
@@ -37,7 +38,7 @@ const Input = ({
     }
     setError(null); // tell the user is right on track as soon as the input is correct again
     changeValue(id, value); // update redux
-  };
+  },[]);
 
   return (
     <div className="form__field form__field--input">

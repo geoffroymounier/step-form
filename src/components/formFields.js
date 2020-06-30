@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React , {useCallback, useMemo} from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from './ui/input';
 import Checkbox from './ui/checkbox';
@@ -12,10 +12,9 @@ const mapElement = {
 };
 const FormFields = ({ formStep }) => {
   const dispatch = useDispatch();
-  const formValues = useSelector((state) => state.form);
-  const valueChanged = (id, value) => dispatch(setValue({ [id]: value }));
 
-  const { fields } = formStep;
+  const valueChanged = (id, value) => dispatch(setValue({ [id]: value }));
+  const { fields } = useMemo(() => formStep,[formStep]);
   return (
     <div className="form__fields">
       {fields.map(({
@@ -28,7 +27,6 @@ const FormFields = ({ formStep }) => {
             key={id}
             label={label}
             id={id}
-            defaultValue={formValues[id]}
             required={required}
             changeValue={valueChanged}
             extraProps={extraProps} // extraProps is specific to each ui type (and so far only input uses it)

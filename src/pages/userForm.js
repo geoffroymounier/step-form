@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import StepBar from '../components/stepBar';
 import FormFields from '../components/formFields';
@@ -10,7 +10,6 @@ import '../styles/form.scss';
 const UserForm = ({ formData }) => {
   const [step, setStep] = useState(0);
   const updateStep = (flow) => setStep(step + flow);
-
   return (
     <section className="form">
       <StepBar step={step} formData={formData} />

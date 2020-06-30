@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const Checkbox = ({
@@ -6,10 +7,10 @@ const Checkbox = ({
   label,
   required,
   changeValue,
-  defaultValue,
 }) => {
   const [error, setError] = useState(null);
-  const onChange = (e) => {
+  const defaultValue = useSelector((state) => state.form[id]);
+  const onChange = useCallback((e) => {
     const { checked } = e.target;
     if (!checked && required) {
       setError(`${label} must be checked`);
@@ -17,7 +18,7 @@ const Checkbox = ({
     }
     setError(null);
     return changeValue(id, checked);
-  };
+  },[]);
   return (
     <div className="form__field form__field--checkbox">
       <span>
